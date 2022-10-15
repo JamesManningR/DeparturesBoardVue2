@@ -7,7 +7,7 @@ import { exampleDepartures, exampleDeparture } from './testData'
 
 Vue.use(PiniaVuePlugin)
 
-const app = new Vue({
+new Vue({
   pinia: createPinia(),
 })
 
@@ -49,11 +49,9 @@ describe('DeparturesStore', () => {
       expect(store.selectedDeparture).toEqual(exampleDeparture)
     })
 
-    it('When selecing a departure, if the departure is not in the departures the selected departure is not set', () => {
+    it('When selecing a departure, if the departure is not in the departures throw an error', () => {
       const store = useDeparturesStore()
-      store.selectDeparture('not a flight number')
-
-      expect(store.selectedDeparture).toBeNull()
+      expect(() => store.selectDeparture('not a flight number')).toThrowError()
     })
   })
 
@@ -79,7 +77,7 @@ describe('DeparturesStore', () => {
       expect(store.departures).toContainEqual(updatedDeparture)
     })
 
-    it('When updating a departure, if the departure is not in the departures the departure is not updated', () => {
+    it('When updating a departure, if the departure is not in the departures throw an error', () => {
       const store = useDeparturesStore()
       store.departures = exampleDepartures
       const updatedDeparture = {
@@ -87,9 +85,7 @@ describe('DeparturesStore', () => {
         flightNumber: 'not a flight number',
         status: 'Example text',
       }
-      store.updateDeparture(updatedDeparture)
-
-      expect(store.departures).not.toContainEqual(updatedDeparture)
+      expect(() => store.updateDeparture(updatedDeparture)).toThrowError()
     })
   })
 })
