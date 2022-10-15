@@ -1,17 +1,21 @@
 import { describe, it, expect } from 'vitest'
 
-import { mount, shallowMount } from '@vue/test-utils'
+import { shallowMount } from '@vue/test-utils'
 
 import App from '../App.vue'
+import AppHeader from '@components/app/AppHeader.vue'
+import DeparturesTable from '@components/departures/DeparturesTable.vue'
 
 describe('App', () => {
+  const wrapper = shallowMount(App)
+
   it('Renders the app header', () => {
-    const wrapper = shallowMount(App)
-    wrapper.find('AppHeader')
+    const component = wrapper.findComponent(AppHeader)
+    expect(component.exists()).toBe(true)
   })
 
   it('Renders a table of departures', () => {
-    const wrapper = mount(App)
-    expect(wrapper.find('table').exists()).toBe(true)
+    const component = wrapper.findComponent(DeparturesTable)
+    expect(component.exists()).toBe(true)
   })
 })
