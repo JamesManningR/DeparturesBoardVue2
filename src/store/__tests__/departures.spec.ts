@@ -3,7 +3,7 @@ import { describe, it, expect, beforeEach } from 'vitest'
 import Vue from 'vue'
 
 import { useDeparturesStore } from '../departures'
-import { exampleDepartures, exampleDeparture } from './testData'
+import { exampleDepartures, exampleDeparture } from '@/__tests__/testData'
 
 Vue.use(PiniaVuePlugin)
 

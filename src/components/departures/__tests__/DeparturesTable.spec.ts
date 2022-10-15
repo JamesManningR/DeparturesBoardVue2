@@ -1,6 +1,8 @@
-import { describe, it, expect } from 'vitest'
-
+import { describe, it, expect, vi } from 'vitest'
+import { createTestingPinia } from '@pinia/testing'
 import { mount } from '@vue/test-utils'
+
+import { exampleDepartures } from '@/__tests__/testData'
 
 import DeparturesTable from '../DeparturesTable.vue'
 
@@ -14,20 +16,31 @@ const titles = [
 ]
 
 describe('DeparturesTable', () => {
+  const wrapper = mount(DeparturesTable, {
+    global: {
+      plugins: [
+        createTestingPinia({
+          initialState: {
+            departures: {
+              departures: exampleDepartures,
+            },
+          },
+          createSpy: vi.fn,
+        }),
+      ],
+    },
+  })
+
   it('Renders a table', () => {
-    const wrapper = mount(DeparturesTable)
     expect(wrapper.find('table').exists()).toBe(true)
   })
 
   it('Renders the specified titles', () => {
-    const wrapper = mount(DeparturesTable)
     const tableTitles = wrapper.findAll('th').wrappers.map(w => w.text())
     expect(tableTitles).toEqual(titles)
   })
 
   it('Renders rows with data fields for each title', () => {
-    const wrapper = mount(DeparturesTable)
-
     const tableBody = wrapper.find('tbody')
     const rows = tableBody.findAll('tr').wrappers
 
