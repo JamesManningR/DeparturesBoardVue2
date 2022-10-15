@@ -4,11 +4,11 @@ import IconTakeoff from '../icons/IconTakeoff.vue'
 
 <template>
   <header
-    class="from-primary to-primaryDark flex w-full items-center gap-2 bg-gradient-to-t text-3xl text-black"
+    class="from-primary to-primaryDark flex w-full items-center gap-2 bg-gradient-to-t p-4 text-3xl text-black"
   >
-    <div class="container mx-auto flex content-center gap-2">
+    <div class="container mx-auto flex content-center gap-6">
       <IconTakeoff role="presentation" class="w-fs h-fs" />
-      <h1>Departures</h1>
+      <h1 class="font-bold">Departures</h1>
     </div>
   </header>
 </template>

@@ -4,8 +4,8 @@ import DeparturesTable from '@components/departures/DeparturesTable.vue'
 </script>
 
 <template>
-  <div id="app">
-    <AppHeader />
+  <div id="app" class="m-3">
+    <AppHeader class="mb-3"/>
 
     <main>
       <DeparturesTable />
