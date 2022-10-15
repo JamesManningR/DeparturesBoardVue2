@@ -1,4 +1,26 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import { onMounted, computed, ref } from 'vue'
+
+import { useDeparturesStore } from '@store'
+import DepartureStatus from './departure/DepartureStatus.vue'
+
+const isLoading = ref(true)
+const hasFailed = ref(false)
+const departuresStore = useDeparturesStore()
+
+onMounted(async () => {
+  try {
+    departuresStore.fetchDepartures()
+  } catch (err) {
+    hasFailed.value = true
+    return
+  }
+
+  isLoading.value = false
+})
+
+const departures = computed(() => departuresStore.departures)
+</script>
 
 <template>
   <div class="from-dark bg-gradient-to-r to-black text-white">
@@ -17,14 +39,28 @@
       </thead>
       <tbody>
         <tr
-          class="border-light container mx-auto mb-3 grid grid-cols-3rounded-lg border-2 px-10 py-5 font-bold md:grid-cols-10"
+          v-for="departure in departures"
+          :key="departure.flightNumber"
+          title="Select to edit details"
+          class="border-light grid-cols-3rounded-lg hover:bg-dark container mx-auto mb-3 grid rounded-lg border-2 px-10 py-5 font-bold hover:cursor-pointer md:grid-cols-10"
         >
-          <td class="text-4xl col-span-3">10:20</td>
-          <td class="text-primary md:col-span-2">Los Santos</td>
-          <td>LSI</td>
-          <td class="col-span-3 md:col-span-2">Adios Airlines</td>
-          <td class="text-primary"><span class="md:hidden">Gate: </span>A4</td>
-          <td class="md:col-span-2">Flight Closing</td>
+          <td class="col-span-3 text-4xl md:col-span-2 md:text-base">
+            {{ departure.estimatedDepartureDateTime }}
+          </td>
+          <td class="text-primary md:col-span-2">
+            {{ departure.arrivalAirport.cityName }}
+          </td>
+          <td>{{ departure.arrivalAirport.code }}</td>
+          <td class="col-span-3 md:col-span-2">
+            {{ departure.airline.name }}
+          </td>
+          <td class="text-primary">
+            <span class="md:hidden">Gate: </span
+            >{{ departure.departureGate?.number || '' }}
+          </td>
+          <td class="md:col-span-2">
+            <DepartureStatus :status="departure.status" />
+          </td>
         </tr>
       </tbody>
     </table>
