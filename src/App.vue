@@ -5,6 +5,12 @@ import AppHeader from '@/components/app/AppHeader.vue'
 <template>
   <div id="app">
     <AppHeader />
+
+    <main>
+      <table>
+        
+      </table>
+    </main>
   </div>
 </template>
 
