@@ -2,7 +2,7 @@ import { describe, it, expect } from 'vitest'
 
 import { StatusTypes } from '@types'
 
-import { inferStatusType } from '../inferStatusTypes'
+import { inferStatusType } from '../inferStatusType'
 
 describe('inferStatusType', () => {
   it("Returns the status 'Departed' if status starts with 'departed'", () => {
