@@ -27,7 +27,10 @@ describe('DeparturesTable', () => {
 
   it('Renders rows with data fields for each title', () => {
     const wrapper = mount(DeparturesTable)
-    const rows = wrapper.findAll('tr').wrappers
+
+    const tableBody = wrapper.find('tbody')
+    const rows = tableBody.findAll('tr').wrappers
+
     rows.forEach(row => {
       const cells = row.findAll('td').wrappers
       expect(cells.length).toBe(titles.length)
