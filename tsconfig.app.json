@@ -6,10 +6,11 @@
     "composite": true,
     "baseUrl": ".",
     "paths": {
-      "@/*": ["./src/*"],
       "@store": ["./src/store"],
       "@components": ["./src/components"],
-      "@types": ["./src/types"]
+      "@types": ["./src/types"],
+      "@utils": ["./src/utils"],
+      "@/*": ["./src/*"]
     }
   }
 }
