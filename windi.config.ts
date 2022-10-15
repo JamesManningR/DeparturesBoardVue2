@@ -19,5 +19,8 @@ export default defineConfig({
         light: '#aebcca',
       },
     },
+    spacing: {
+      fs: '1em',
+    },
   },
 })
