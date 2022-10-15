@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import AppHeader from '@/components/app/AppHeader.vue'
+import DeparturesTable from '@/components/departures/DeparturesTable.vue'
 </script>
 
 <template>
@@ -7,9 +8,7 @@ import AppHeader from '@/components/app/AppHeader.vue'
     <AppHeader />
 
     <main>
-      <table>
-        
-      </table>
+      <DeparturesTable />
     </main>
   </div>
 </template>
