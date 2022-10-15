@@ -40,3 +40,11 @@ export enum FlightDirections {
   Departure = 'departure',
   Arrival = 'arrival', // This is assumed since there are no arrivals in the API
 }
+
+export enum StatusTypes {
+  Custom,
+  Departed,
+  Diverted,
+  Delayed,
+  Cancelled,
+}
