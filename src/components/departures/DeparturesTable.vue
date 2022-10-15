@@ -12,9 +12,17 @@
         <th>Status</th>
       </tr>
     </thead>
+    <tbody>
+      <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+    </tbody>
   </table>
 </template>
-
-
 
 <style lang="scss"></style>
