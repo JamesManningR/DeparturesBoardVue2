@@ -121,7 +121,7 @@ describe('DepartureStatus', () => {
       expect(wrapper.vm.type).not.toBe(StatusTypes.Cancelled)
     })
 
-    it("Resolves the status type to Custom if the status doesn't match another condition", () => {
+    it('Resolves the status type to Custom if the status doesn\'t match another condition', () => {
       const wrapper = mount(DepartureStatus, {
         propsData: {
           status: 'On Time',
