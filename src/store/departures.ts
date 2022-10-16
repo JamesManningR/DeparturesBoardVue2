@@ -34,6 +34,7 @@ export const useDeparturesStore = defineStore('departures', () => {
    */
   const fetchDepartures = async (): Promise<Departure[]> => {
     let res
+
     try {
       res = await Axios.get<DepartureApiResponse>(departuresApiUrl)
     } catch (err) {
