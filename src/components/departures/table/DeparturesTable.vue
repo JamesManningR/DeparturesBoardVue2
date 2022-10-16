@@ -34,7 +34,7 @@ const departures = computed(() => departuresStore.sortedDepartures)
 
 <template>
   <div class="from-dark min-h-2xl bg-gradient-to-r to-black text-white">
-    <table v-if="!hasFailed" class="flex flex-col pt-3">
+    <table v-if="!hasFailed" class="mx-4 flex flex-col pt-3">
       <DeparturesTableHead v-once />
       <tbody v-if="!isLoading">
         <DepartureTableRow
