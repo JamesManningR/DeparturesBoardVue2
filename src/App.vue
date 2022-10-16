@@ -1,5 +1,6 @@
 <script setup lang="ts">
-import { computed } from 'vue'
+import { ref } from 'vue'
+import { storeToRefs } from 'pinia'
 
 import { useDeparturesStore } from '@store'
 
@@ -9,15 +10,23 @@ import DepartureEditForm from '@components/departures/departure/DepartureEditFor
 
 const departureStore = useDeparturesStore()
 
-const selectedDeparture = computed(() => departureStore.selectedDeparture)
+const { selectedDeparture } = storeToRefs(departureStore)
+
+// I would use template refs here for vue 3 but it seems to be incompatible with this version so I'll use an id
+const scrollToform = () => {
+  const form = document.getElementById('editForm')
+  if (form) {
+    form.scrollIntoView({ behavior: 'smooth' })
+  }
+}
 </script>
 
 <template>
-  <div id="app" class="m-3">
+  <div id="app" class="m-3 flex flex-col md:max-h-screen">
     <AppHeader class="mb-3" />
 
     <main class="mb-3">
-      <DeparturesTable />
+      <DeparturesTable @selectDeparture="scrollToform" />
     </main>
 
     <aside v-if="selectedDeparture" class="bg-dark">
@@ -25,6 +34,7 @@ const selectedDeparture = computed(() => departureStore.selectedDeparture)
         <DepartureEditForm
           :key="selectedDeparture.flightNumber"
           :departure="selectedDeparture"
+          id="editForm"
         />
       </div>
     </aside>
