@@ -45,6 +45,7 @@ const handleSubmit = () => {
   const updatedDeparture = { ...props.departure, status: newStatus.value }
 
   departureStore.updateDeparture(updatedDeparture)
+  departureStore.resetSelectedDeparture()
 }
 </script>
 
