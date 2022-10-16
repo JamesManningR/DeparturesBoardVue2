@@ -1,5 +1,5 @@
 import { defineStore } from 'pinia'
-import { ref } from 'vue'
+import { ref, computed } from 'vue'
 import Axios from 'axios'
 
 import type { Departure, DepartureApiResponse } from '@types'
@@ -13,6 +13,19 @@ export const useDeparturesStore = defineStore('departures', () => {
    * Holds all departures fetched from the api
    */
   const departures = ref<Departure[]>([])
+
+  /**
+   * Sorted departures by scheduled departure time
+   * @returns The sorted departures
+   */
+  const sortedDepartures = computed<Departure[]>(() => {
+    return departures.value.sort((a, b) => {
+      const aDate = new Date(a.scheduledDepartureDateTime)
+      const bDate = new Date(b.scheduledDepartureDateTime)
+
+      return aDate.getTime() - bDate.getTime()
+    })
+  })
 
   /**
    * Fetches the departures from the API
@@ -70,12 +83,17 @@ export const useDeparturesStore = defineStore('departures', () => {
 
     if (index === -1) throw new Error('Departure not found')
 
-    departures.value[index] = departure
-    return departure
+    const newDepartures = departures.value
+    newDepartures[index] = departure
+
+    departures.value = newDepartures
+
+    return departures.value[index]
   }
 
   return {
     departures,
+    sortedDepartures,
     fetchDepartures,
     selectedDeparture,
     selectDeparture,

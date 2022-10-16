@@ -6,18 +6,13 @@ import { mount } from '@vue/test-utils'
 import DepartureStatus from '../DepartureStatus.vue'
 
 describe('DepartureStatus', () => {
-  it('Renders a span', () => {
-    const wrapper = mount(DepartureStatus)
-    expect(wrapper.find('span').exists()).toBe(true)
-  })
-
-  it('Renders a span with the specified status', () => {
+  it('Renders the specified status as text', () => {
     const wrapper = mount(DepartureStatus, {
       propsData: {
         status: 'On Time',
       },
     })
-    expect(wrapper.find('span').text()).toBe('On Time')
+    expect(wrapper.text()).contains('On Time')
   })
 
   describe('StatusType', () => {
