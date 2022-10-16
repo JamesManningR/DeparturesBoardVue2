@@ -1,10 +1,14 @@
 # departures
 
+I've setup automatic deployment to github pages so you don't have to do any building. Just go to [This deployed app page](https://jamesmanningr.github.io/DeparturesBoardVue2/) and you'll see the latest version of the app.
+
 First I just want to leave a note. I did read in the task that I should use css/scss/sass/less or css in js but due to time constraints I opted to use windicss. This isn't because I can't use css (I use it in my day to day work along with bootstrap) but I wanted to make sure that I was building this app quickly so I can focus on 1) functionality and 2) testing. I recently picked up windicss and really like it as it makes building UI components really fast. I hope this doesn't knock too many points since windicss is essentially just a different way to access the same css properties I would be using anyway, just without the overhead of adding a class markup. If time weren't an issue, I could employ a naming convention such as BEM (which I generally use at work) to make sure that the markup is semantic and maintainable.
 
 ## Post Task Notes
 
 Please read [this version](https://github.com/JamesManningR/DeparturesBoardVue2/blob/64ec519bb7e226b999fc15387ae09b7697df4395/README.md) of the readme to see my thoughts before just pushing on to get this complete. I almost called it a day and just submited what I had but I wanted to at give myself the most chance least getting to the stage where I get the oppertunity to talk through it.
+
+I might take some time in the week to just upgrade this for fun since the foundation is there and I think it's worth adding to every now and again... so maybe if it's not up to scratch, maybe you'll see a better version soon!
 
 ### What I think went well
 
