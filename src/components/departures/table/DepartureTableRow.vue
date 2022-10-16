@@ -39,10 +39,10 @@ const formattedtime = computed(() => {
       {{ departure.airline.name }}
     </td>
     <td class="text-primary">
-      <span class="md:hidden">Gate: </span
+      <span v-if="departure.departureGate?.number" class="md:hidden">Gate: </span
       >{{ departure.departureGate?.number || '' }}
     </td>
-    <td class="md:col-span-2">
+    <td class="col-span-3 md:col-span-2">
       <DepartureStatus :status="departure.status" />
     </td>
   </tr>
