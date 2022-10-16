@@ -26,7 +26,7 @@ const formattedtime = computed(() => {
   <tr
     @click="$emit('click')"
     title="Select to edit details"
-    class="border-light grid-cols-3rounded-lg container mx-auto mb-3 grid rounded-lg border-2 px-10 py-5 font-bold md:grid-cols-10"
+    class="border-light grid-cols-3rounded-lg container mx-auto mb-3 grid rounded-lg border-2 px-10 py-5 font-bold md:grid-cols-10 md:items-center"
   >
     <td class="col-span-3 text-4xl md:col-span-2 md:text-base">
       {{ formattedtime }}
@@ -43,7 +43,7 @@ const formattedtime = computed(() => {
       >{{ departure.departureGate?.number || '' }}
     </td>
     <td class="col-span-3 md:col-span-2">
-      <DepartureStatus :status="departure.status" />
+      <DepartureStatus :status="departure.status" :key="departure.status" />
     </td>
   </tr>
 </template>
