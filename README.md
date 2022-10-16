@@ -4,7 +4,7 @@ First I just want to leave a note. I did read in the task that I should use css/
 
 ## Post Task Notes
 
-So I've decided to call it a day on this one. I spent a fair amount of time, and most of it was spent troubleshooting the vue setup. I regret trying so hard to make it work with the new technologies that I'm used to, since it has ultimately caused more annoyance than it was worth. I've decided to submit anyway since it's in a state where I feel like anything other than a rewrite won't fix a lot of the issues that I've had.
+Please read [this version](https://github.com/JamesManningR/DeparturesBoardVue2/blob/64ec519bb7e226b999fc15387ae09b7697df4395/README.md) of the readme to see my thoughts before just pushing on to get this complete. I almost called it a day and just submited what I had but I wanted to at give myself the most chance least getting to the stage where I get the oppertunity to talk through it.
 
 ### What I think went well
 
@@ -17,10 +17,11 @@ So I've decided to call it a day on this one. I spent a fair amount of time, and
 - I think on the styling front, I developed skills using windicss (which I hadn't touched before) and I think I did a good job of using it to build the UI. I also think it helped speed up the development process
 - I followed a mostly TDD approach to this project, even at times when it was a bit of a pain to do so. I think this broke down the project into smaller chunks and made it easier to work on, even if at times it caused a blockage in progress.
 - I liked the inferStatusType functionality and think it works well when you interact with it in the free-text option. I think it could be improved by adding more options to the resolver, but I think it's a good start.
+- I almost gave up on the project at one point, but I took an hour break and came back to it, determined to solve the problem. While I'm not proud of the fact that I almost just submitted it and hoped that I'd get a pass, I'm glad that I have an internal drive to see things through to the end.
+- I added an infinite scrolling feature to the table so fewer elements have to be rendered to the screen on initial load. I would like to develop this further for some more edge cases as well as expanding it into fetching more results from the API (Rather than just handling the ones that are already loaded into the store) but that wasn't ever called for in the task. Though thinking about it, maybe the API does have that functionality... I better not get too into this because before you know it, there will be anotehr readme version with that feature implemented...
 
 ### What I think could be improved
 
-- Of course I would like the app to actually work as intended, but I think that's a given.
 - I wish my tests worked with the vue components, I think that would have been a good way to test the functionality of the app. I tried using different methods for instance using the `computed.call` method, but this still gave me issues. If I had more time I would have tried to figure this one out.
 - I had a lot in mind for improving the performance of the app (such as using a virtual list to render the table, using a web worker to handle the sorting, lazy loading components, etc.) but with the core functionality not being there, I didn't want to go too far down that rabbit hole.
 - I think the note to say *may* use nuxt might have been more of a possitive nudge than a negative one, but I think I would have been better off using nuxt to get the app up and running faster, as well as handling ssr. I initially read the *may* as a suggestion to not use nuxt but I think that was a misinterpretation on my part (and of course I would clarify this by sending a messege).
@@ -34,23 +35,15 @@ There were a few things that I wanted to note as a difference from how this proj
 
 ### Planned features which I didn't get to
 
-- I wanted to direct the user to the form when they clicked on a row, but I didn't get to this.
 - A timer on the reset button to prevent excessive calls to the api.
 - Using the destinations to show the flag of the country to make information much easier to parse.
 - Status to flash when it changes to make it easier to see when it changes. (this didn't get done due to the fact that the update method wasn't working)
-- Diverted status change would render the new destonation bellow the original destination - I chose this as a solution to the problem as people use the city names as an identifier for the flight (rather than the number). I would have done this if I got the update method working.
+- Diverted status change would render the new destination bellow the original destination - I chose this as a solution to the problem as people use the city names as an identifier for the flight (rather than the number). I would have done this if I got the update method working.
+- Automatic deployment - I may come back to this one after I've eaten... But I might call it a day.
 
 ### Conclusion
 
-I think the project was a good learning experience and looking back I think I can narrow down the issues to a few things:
-
-- Overcomplication of the project by trying to use new technologies without understanding them fully within the context of the project
-- Overreliance on the conveniences of vue 3 (such as the composition api) without understanding the differences between how you can interact with them in vue 2 and vue 3
-- Lack of time spent to fully understand the requirements of the project and how they would be implemented
-
-I overcomplicated the tech stack before getting the core functionality as I wanted to show off a little by using tech that I would use in larger projects, but I think it would have just been better to use inbuilt functionality without trying too hard to overcomplicate things. What I did was much more easily done props and emits but I added the store which meant I had to contend with the differences between vue 2 and vue 3's reactivity system. I think I could have done a better job of understanding the requirements of the project and just getting the core functionality working before trying to add the bells and whistles. (especially when I'm using something I'm less experienced with)
-
-I have appreciated the oppertunity to work on this project and I hope that I can continue to improve my skills as a developer. I regret the fact that I wasn't able to get the app functioning correctly, but I think that I have learned a lot from this experience and I hope that I can continue to improve my skills as a developer. If through this process I have been able to show that I am a good fit for the role, I would be happy to continue the process and work on the project further. I'm sure you will recieve many applications for this role, and they will probably include much better functioning attempts at this project, but I hope that you will consider my application as well as I have hunger for learning and have a lot of knowledge in the newer implementations of vue. I hope that you will consider my application and I look forward to hearing from you.
+I was able to complete the task and I think the product fits the brief. I am aware there are some rough patches (mainly to do with scrolling behaviour and some interaction) but I think that even though I did kind of shoot myself in the foot by overcomplicating things, I delivered a functional app which will show some of the more advanced concepts that I have learned in my time working with Vue.
 
 ## External Packages used
 
@@ -85,6 +78,7 @@ I've listed out all of the packages that I thought would require a choice to be 
 
 - [typescript](https://www.typescriptlang.org/) - Makes code MUCH more maintainable and readable
 - [axios] - I floated the idea of using [fetch](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API) but axios is 1) more browser compatible and 2) it works with typescript typing (without workarounds) so I went with that
+- [VueUse](https://vueuse.org/) - I used this to get the `useInfiniteLoading` function. I could have implemented this myself but for some functionality I think it's worth using the library that has been maintained and tested heavily, rather than re-inventing the wheel (oh.. and look.. it's another Anthony Fu maintained project 🤷)
 
 ## Customize configuration
 
@@ -109,7 +103,7 @@ npm run build
 ```
 
 ### Run Unit Tests with [Vitest](https://vitest.dev/)
-
+Bare in mind these tests will fail for all of the component files
 ```sh
 npm run test
 ```
