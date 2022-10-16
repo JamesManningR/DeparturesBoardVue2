@@ -9,7 +9,7 @@ defineEmits<{
   <button
     @click="$emit('click')"
     @select="$emit('select')"
-    class="bg-primary hover:bg-primary-dark rounded-md px-4 py-2 text-white shadow-md hover:shadow-lg"
+    class="bg-primary hover:bg-primary-dark rounded-md px-4 py-2 text-dark shadow-md hover:shadow-lg"
   >
     <slot />
   </button>
