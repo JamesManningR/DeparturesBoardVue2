@@ -32,6 +32,9 @@ I might take some time in the week to just upgrade this for fun since the founda
 - I had a lot in mind for improving the performance of the app (such as using a virtual list to render the table, using a web worker to handle the sorting, lazy loading components, etc.) but with the core functionality not being there, I didn't want to go too far down that rabbit hole.
 - I think the note to say *may* use nuxt might have been more of a possitive nudge than a negative one, but I think I would have been better off using nuxt to get the app up and running faster, as well as handling ssr. I initially read the *may* as a suggestion to not use nuxt but I think that was a misinterpretation on my part (and of course I would clarify this by sending a messege).
 - My editor setup didn't pan out so well, which was a shame as it is something I've never really had much of an issue with in the past. For some reason my tsconfig isn't interacting with VSCode as I might have expected. I'm sure it's some simple config issue since it works periodically in the editor (and works fine when running)
+- The page layout could do with some work. I think the layout doesn't make use of screen space very well and could be improved.
+- Now that I think about it, I don't think that an `aside` is a good element to put the form into...
+- Add a more screen-reader friendly interaction for selecting a departure status
 
 ### Notable differences from day to day
 
@@ -44,7 +47,8 @@ There were a few things that I wanted to note as a difference from how this proj
 
 - A timer on the reset button to prevent excessive calls to the api.
 - Using the destinations to show the flag of the country to make information much easier to parse.
-- Status to flash when it changes to make it easier to see when it changes. (this didn't get done due to the fact that the update method wasn't working)
+- Status to flash when it changes to make it easier to see when it changes.
+- Handle the demounting of the form more eligantly (I think it's a bit janky at the moment, it'd be nice to scroll to the updated row when it has been updated)
 - Diverted status change would render the new destination bellow the original destination - I chose this as a solution to the problem as people use the city names as an identifier for the flight (rather than the number). I would have done this if I got the update method working.
 - Use a more consistent method for scrolling to the form when the user clicks on a row, I have a method now but it doesn't actually work in build. I think this is because the element isn't rendered yet when the method is called. I'll look into this more if I get the chance.
 - Pretty up the page layout a bit more, I think at the moment it puts too much emphasis on the table and not enough on the form. I'd like to make it a little more balanced especially on desktop. Maybe on mobile I could use a card flip style to make it a but more frictionless, but again I think this is a bit of a nice to have.
