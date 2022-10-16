@@ -49,12 +49,15 @@ const handleSubmit = () => {
 </script>
 
 <template>
-  <form @submit.prevent="handleSubmit" class="bg-dark text-white p-4">
+  <form @submit.prevent="handleSubmit" class="bg-dark p-4 text-white">
     <h2 class="mb-2 text-3xl">
       Editing departure: {{ departure.flightNumber }}
     </h2>
 
-    <section role="presentation" class="mb-4 border-2 border-white rounded-md p-2">
+    <section
+      role="presentation"
+      class="mb-4 rounded-md border-2 border-white p-2"
+    >
       <h3 class="mb-2 text-xl">Preview</h3>
 
       <DepartureStatus :status="newStatus" />
