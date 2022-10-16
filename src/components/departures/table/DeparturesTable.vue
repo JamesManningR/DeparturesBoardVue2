@@ -9,6 +9,10 @@ import AppButton from '@components/app/AppButton.vue'
 import DeparturesTableHead from '@/components/departures/table/DeparturesTableHead.vue'
 import DepartureTableRow from './DepartureTableRow.vue'
 
+const emit = defineEmits<{
+  (e: 'selectDeparture', id: string): void
+}>()
+
 const departuresStore = useDeparturesStore()
 const { sortedDepartures } = storeToRefs(departuresStore)
 
@@ -34,7 +38,10 @@ onMounted(() => {
 })
 
 // Select departure functionality
-const selectDeparture = (id: string) => departuresStore.selectDeparture(id)
+const selectDeparture = (id: string) => {
+  departuresStore.selectDeparture(id)
+  emit('selectDeparture', id)
+}
 
 // Infinite scroll =================
 const show = ref(20)
@@ -60,7 +67,7 @@ useInfiniteScroll(
       <tbody
         v-if="!isLoading"
         ref="results"
-        class="scrollbar-custom max-h-[90vh] overflow-y-auto"
+        class="scrollbar-custom max-h-full overflow-y-auto"
       >
         <DepartureTableRow
           v-for="departure in limitedDepartures"
