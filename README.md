@@ -21,7 +21,7 @@ So I've decided to call it a day on this one. I spent a fair amount of time, and
 ### What I think could be improved
 
 - Of course I would like the app to actually work as intended, but I think that's a given.
-- I wish my tests worked with the vue components, I think that would have been a good way to test the functionality of the app.
+- I wish my tests worked with the vue components, I think that would have been a good way to test the functionality of the app. I tried using different methods for instance using the `computed.call` method, but this still gave me issues. If I had more time I would have tried to figure this one out.
 - I had a lot in mind for improving the performance of the app (such as using a virtual list to render the table, using a web worker to handle the sorting, lazy loading components, etc.) but with the core functionality not being there, I didn't want to go too far down that rabbit hole.
 - I think the note to say *may* use nuxt might have been more of a possitive nudge than a negative one, but I think I would have been better off using nuxt to get the app up and running faster, as well as handling ssr. I initially read the *may* as a suggestion to not use nuxt but I think that was a misinterpretation on my part (and of course I would clarify this by sending a messege).
 
@@ -35,7 +35,10 @@ There were a few things that I wanted to note as a difference from how this proj
 ### Planned features which I didn't get to
 
 - I wanted to direct the user to the form when they clicked on a row, but I didn't get to this.
-- I wanted to add a loading state to the table, but I didn't get to this.
+- A timer on the reset button to prevent excessive calls to the api.
+- Using the destinations to show the flag of the country to make information much easier to parse.
+- Status to flash when it changes to make it easier to see when it changes. (this didn't get done due to the fact that the update method wasn't working)
+- Diverted status change would render the new destonation bellow the original destination - I chose this as a solution to the problem as people use the city names as an identifier for the flight (rather than the number). I would have done this if I got the update method working.
 
 ### Conclusion
 
@@ -44,6 +47,8 @@ I think the project was a good learning experience and looking back I think I ca
 - Overcomplication of the project by trying to use new technologies without understanding them fully within the context of the project
 - Overreliance on the conveniences of vue 3 (such as the composition api) without understanding the differences between how you can interact with them in vue 2 and vue 3
 - Lack of time spent to fully understand the requirements of the project and how they would be implemented
+
+I overcomplicated the tech stack before getting the core functionality as I wanted to show off a little by using tech that I would use in larger projects, but I think it would have just been better to use inbuilt functionality without trying too hard to overcomplicate things. What I did was much more easily done props and emits but I added the store which meant I had to contend with the differences between vue 2 and vue 3's reactivity system. I think I could have done a better job of understanding the requirements of the project and just getting the core functionality working before trying to add the bells and whistles. (especially when I'm using something I'm less experienced with)
 
 I have appreciated the oppertunity to work on this project and I hope that I can continue to improve my skills as a developer. I regret the fact that I wasn't able to get the app functioning correctly, but I think that I have learned a lot from this experience and I hope that I can continue to improve my skills as a developer. If through this process I have been able to show that I am a good fit for the role, I would be happy to continue the process and work on the project further. I'm sure you will recieve many applications for this role, and they will probably include much better functioning attempts at this project, but I hope that you will consider my application as well as I have hunger for learning and have a lot of knowledge in the newer implementations of vue. I hope that you will consider my application and I look forward to hearing from you.
 
