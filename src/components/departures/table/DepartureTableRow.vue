@@ -19,7 +19,7 @@ const formattedtime = computed(() => {
     hour: '2-digit',
     minute: '2-digit',
   })
-});
+})
 </script>
 
 <template>
@@ -39,7 +39,8 @@ const formattedtime = computed(() => {
       {{ departure.airline.name }}
     </td>
     <td class="text-primary">
-      <span v-if="departure.departureGate?.number" class="md:hidden">Gate: </span
+      <span v-if="departure.departureGate?.number" class="md:hidden"
+        >Gate: </span
       >{{ departure.departureGate?.number || '' }}
     </td>
     <td class="col-span-3 md:col-span-2">
