@@ -1,14 +1,16 @@
-# departures
+# Departures technical test
 
 I've setup automatic deployment to github pages so you don't have to do any building. Just go to [This deployed app page](https://jamesmanningr.github.io/DeparturesBoardVue2/) and you'll see the latest version of the app.
 
-First I just want to leave a note. I did read in the task that I should use css/scss/sass/less or css in js but due to time constraints I opted to use windicss. This isn't because I can't use css (I use it in my day to day work along with bootstrap) but I wanted to make sure that I was building this app quickly so I can focus on 1) functionality and 2) testing. I recently picked up windicss and really like it as it makes building UI components really fast. I hope this doesn't knock too many points since windicss is essentially just a different way to access the same css properties I would be using anyway, just without the overhead of adding a class markup. If time weren't an issue, I could employ a naming convention such as BEM (which I generally use at work) to make sure that the markup is semantic and maintainable.
+## Development notes (written before starting)
+
+First I just want to leave a note. I did read in the task that I should use css/scss/sass/less or css in js but due to time constraints I opted to use windicss. This isn't because I can't use css (I use it in my day to day work along with bootstrap) but I wanted to make sure that I was building this app quickly so I can focus on 1) functionality and 2) testing. I recently picked up windicss and really like it as it makes building UI components really fast. I hope this doesn't knock too many points since windicss is essentially just a different way to access the same css properties I would be using anyway, just without the overhead of adding a class markup. If time weren't an issue, I could employ a naming convention such as BEM (which I generally use at work alongside bootstrap) to make sure that the markup is semantic and maintainable.
 
 ## Post Task Notes
 
-Please read [this version](https://github.com/JamesManningR/DeparturesBoardVue2/blob/64ec519bb7e226b999fc15387ae09b7697df4395/README.md) of the readme to see my thoughts before just pushing on to get this complete. I almost called it a day and just submited what I had but I wanted to at give myself the most chance least getting to the stage where I get the oppertunity to talk through it.
+I almost decided to call it a day on this project and submit unfinished because I was having trouble with Vue2, fo fun, this repo has the readne from that [this version](https://github.com/JamesManningR/DeparturesBoardVue2/blob/64ec519bb7e226b999fc15387ae09b7697df4395/README.md) has my thoughts before I decided to push through and not give up. I decided that I wanted to at give myself the most chance of at least getting to the stage where I get the oppertunity to talk through it and get some feedback!
 
-I might take some time in the week to just upgrade this for fun since the foundation is there and I think it's worth adding to every now and again... so maybe if it's not up to scratch, maybe you'll see a better version soon!
+I might take some time in the week to just upgrade this for fun since the foundation is there and I think it's worth adding to every now and again... I'll probably update it with whatever feedback I recieve and add some features that I think would be nice to have.
 
 ### What I think went well
 
@@ -29,6 +31,7 @@ I might take some time in the week to just upgrade this for fun since the founda
 - I wish my tests worked with the vue components, I think that would have been a good way to test the functionality of the app. I tried using different methods for instance using the `computed.call` method, but this still gave me issues. If I had more time I would have tried to figure this one out.
 - I had a lot in mind for improving the performance of the app (such as using a virtual list to render the table, using a web worker to handle the sorting, lazy loading components, etc.) but with the core functionality not being there, I didn't want to go too far down that rabbit hole.
 - I think the note to say *may* use nuxt might have been more of a possitive nudge than a negative one, but I think I would have been better off using nuxt to get the app up and running faster, as well as handling ssr. I initially read the *may* as a suggestion to not use nuxt but I think that was a misinterpretation on my part (and of course I would clarify this by sending a messege).
+- My editor setup didn't pan out so well, which was a shame as it is something I've never really had much of an issue with in the past. For some reason my tsconfig isn't interacting with VSCode as I might have expected. I'm sure it's some simple config issue since it works periodically in the editor (and works fine when running)
 
 ### Notable differences from day to day
 
@@ -43,11 +46,14 @@ There were a few things that I wanted to note as a difference from how this proj
 - Using the destinations to show the flag of the country to make information much easier to parse.
 - Status to flash when it changes to make it easier to see when it changes. (this didn't get done due to the fact that the update method wasn't working)
 - Diverted status change would render the new destination bellow the original destination - I chose this as a solution to the problem as people use the city names as an identifier for the flight (rather than the number). I would have done this if I got the update method working.
-- Automatic deployment - I may come back to this one after I've eaten... But I might call it a day.
+- Use a more consistent method for scrolling to the form when the user clicks on a row, I have a method now but it doesn't actually work in build. I think this is because the element isn't rendered yet when the method is called. I'll look into this more if I get the chance.
+- Pretty up the page layout a bit more, I think at the moment it puts too much emphasis on the table and not enough on the form. I'd like to make it a little more balanced especially on desktop. Maybe on mobile I could use a card flip style to make it a but more frictionless, but again I think this is a bit of a nice to have.
 
 ### Conclusion
 
 I was able to complete the task and I think the product fits the brief. I am aware there are some rough patches (mainly to do with scrolling behaviour and some interaction) but I think that even though I did kind of shoot myself in the foot by overcomplicating things, I delivered a functional app which will show some of the more advanced concepts that I have learned in my time working with Vue.
+
+
 
 ## External Packages used
 
