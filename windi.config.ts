@@ -9,9 +9,8 @@ export default defineConfig({
     'text-warning',
     'text-danger',
     'text-info',
+    'border-primary',
     'border-current',
-    'border-success',
-    'border-warning',
     'border-danger',
   ],
   theme: {
