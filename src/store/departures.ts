@@ -72,6 +72,13 @@ export const useDeparturesStore = defineStore('departures', () => {
   }
 
   /**
+   * Resets the selected departure
+   */
+  const resetSelectedDeparture = (): void => {
+    selectedDeparture.value = null
+  }
+
+  /**
    * Updates a departure in the departures list
    * @param departure The departure to update
    * @returns The updated departure
@@ -84,10 +91,8 @@ export const useDeparturesStore = defineStore('departures', () => {
 
     if (index === -1) throw new Error('Departure not found')
 
-    const newDepartures = departures.value
-    newDepartures[index] = departure
-
-    departures.value = newDepartures
+    // replace the departure in the list using vue's reactivity
+    departures.value.splice(index, 1, departure)
 
     return departures.value[index]
   }
@@ -98,6 +103,7 @@ export const useDeparturesStore = defineStore('departures', () => {
     fetchDepartures,
     selectedDeparture,
     selectDeparture,
+    resetSelectedDeparture,
     updateDeparture,
   }
 })
