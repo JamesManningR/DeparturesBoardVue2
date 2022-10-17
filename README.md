@@ -2,6 +2,44 @@
 
 I've setup automatic deployment to github pages so you don't have to do any building. Just go to [This deployed app page](https://jamesmanningr.github.io/DeparturesBoardVue2/) and you'll see the latest version of the app.
 
+## Project Setup
+
+I've moved this to the top to make it quicker to access this information. I've also written a debrief along with outlining the packages used in the next section. 
+
+I've used Yarn for this project, you can use npm if you prefer but I'd recommend using yarn as it will keep the version resolution the same for both of our environments.
+
+### Install dependencies
+
+```sh
+yarn
+```
+
+### Compile and Hot-Reload for Development
+
+```sh
+yarn dev
+```
+
+### Compile for Production
+I prefer to seperate the tasks and run them in the CI so I've taken the test step out of this script.
+
+```sh
+yarn build
+```
+
+### Run Unit Tests with [Vitest](https://vitest.dev/)
+Bare in mind these tests will fail for all of the component files
+
+```sh
+yarn test
+```
+
+### Lint with [ESLint](https://eslint.org/)
+
+```sh
+yarn lint
+```
+
 ## Development notes (written before starting)
 
 First I just want to leave a note. I did read in the task that I should use css/scss/sass/less or css in js but due to time constraints I opted to use windicss. This isn't because I can't use css (I use it in my day to day work along with bootstrap) but I wanted to make sure that I was building this app with as little implementation friction so I can focus on 1) functionality and 2) testing. I recently read about windicss and utility first frameworks and I think that this is a good excuse to explore that as it as it makes building the GUI of components really fast. I hope this doesn't knock too many points since windicss is essentially just a different way to access the same css properties I would be using anyway, just without the overhead of adding a class markup. If time weren't short (and I was using a work day rather than free time), I could employ a naming convention such as BEM (which I generally use at work alongside bootstrap) to make sure that the markup is semantic and maintainable, and then use a compiler uglifying layer to reduce the size of the bundle.
@@ -91,40 +129,3 @@ I've listed out all of the packages that I thought would require a choice to be 
 - [typescript](https://www.typescriptlang.org/) - Makes code MUCH more maintainable and readable
 - [axios](https://axios-http.com/docs/intro) - I floated the idea of using [fetch](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API) but axios is 1) more browser compatible and 2) it works with typescript typing (without workarounds) so I went with that
 - [VueUse](https://vueuse.org/) - I used this to get the `useInfiniteLoading` function. I could have implemented this myself but for some functionality I think it's worth using the library that has been maintained and tested heavily, rather than re-inventing the wheel (oh.. and look.. it's another Anthony Fu maintained project 🤷)
-
-## Customize configuration
-
-See [Vite Configuration Reference](https://vitejs.dev/config/).
-
-## Project Setup
-
-I've used Yarn for this project, you can use npm if you prefer but I'd recommend using yarn as it's a lot faster.
-
-```sh
-yarn
-```
-
-### Compile and Hot-Reload for Development
-
-```sh
-yarn dev
-```
-
-### Type-Check, Compile and Minify for Production
-
-```sh
-yarn build
-```
-
-### Run Unit Tests with [Vitest](https://vitest.dev/)
-Bare in mind these tests will fail for all of the component files
-
-```sh
-yarn test
-```
-
-### Lint with [ESLint](https://eslint.org/)
-
-```sh
-yarn lint
-```
