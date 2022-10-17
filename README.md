@@ -4,11 +4,11 @@ I've setup automatic deployment to github pages so you don't have to do any buil
 
 ## Development notes (written before starting)
 
-First I just want to leave a note. I did read in the task that I should use css/scss/sass/less or css in js but due to time constraints I opted to use windicss. This isn't because I can't use css (I use it in my day to day work along with bootstrap) but I wanted to make sure that I was building this app quickly so I can focus on 1) functionality and 2) testing. I recently picked up windicss and really like it as it makes building UI components really fast. I hope this doesn't knock too many points since windicss is essentially just a different way to access the same css properties I would be using anyway, just without the overhead of adding a class markup. If time weren't an issue, I could employ a naming convention such as BEM (which I generally use at work alongside bootstrap) to make sure that the markup is semantic and maintainable.
+First I just want to leave a note. I did read in the task that I should use css/scss/sass/less or css in js but due to time constraints I opted to use windicss. This isn't because I can't use css (I use it in my day to day work along with bootstrap) but I wanted to make sure that I was building this app with as little implementation friction so I can focus on 1) functionality and 2) testing. I recently read about windicss and utility first frameworks and I think that this is a good excuse to explore that as it as it makes building the GUI of components really fast. I hope this doesn't knock too many points since windicss is essentially just a different way to access the same css properties I would be using anyway, just without the overhead of adding a class markup. If time weren't short (and I was using a work day rather than free time), I could employ a naming convention such as BEM (which I generally use at work alongside bootstrap) to make sure that the markup is semantic and maintainable, and then use a compiler uglifying layer to reduce the size of the bundle.
 
 ## Post Task Notes
 
-I almost decided to call it a day on this project and submit unfinished because I was having trouble with Vue2, fo fun, this repo has the readne from that [this version](https://github.com/JamesManningR/DeparturesBoardVue2/blob/64ec519bb7e226b999fc15387ae09b7697df4395/README.md) has my thoughts before I decided to push through and not give up. I decided that I wanted to at give myself the most chance of at least getting to the stage where I get the oppertunity to talk through it and get some feedback!
+I almost decided to call it a day on this project and submit unfinished because I was having trouble with Vue2, this repo has the [readne from that version](https://github.com/JamesManningR/DeparturesBoardVue2/blob/64ec519bb7e226b999fc15387ae09b7697df4395/README.md) has my thoughts before I decided to push through and not give up. I decided that I wanted to at give myself the most chance of at least getting to the stage where I get the oppertunity to talk through it and get some feedback!
 
 I might take some time in the week to just upgrade this for fun since the foundation is there and I think it's worth adding to every now and again... I'll probably update it with whatever feedback I recieve and add some features that I think would be nice to have.
 
@@ -20,18 +20,18 @@ I might take some time in the week to just upgrade this for fun since the founda
 - On the same note with the table, I'm happy that I was able to get the table to be responsive and still look good.
 - I think my testing on a good chunk of the project is solid, but I was unable to get the testing to work with some of the vue components. This is something I would have liked to have done, but the differences between the vue 2 and vue 3 testing tools were more stark than I'd anticipated.
 - The environment generally works well, I'm happy with the setup and the way that the project is structured on a boilerplate level.
-- I think on the styling front, I developed skills using windicss (which I hadn't touched before) and I think I did a good job of using it to build the UI. I also think it helped speed up the development process
+- I think on the styling front, I developed skills using `windicss` and utility based css frameworks (which I had only read about before this project) and I think I did a good job of using it to build the UI. I also think it helped speed up the development process so I'm ultimately happy that I decided to use it.
 - I followed a mostly TDD approach to this project, even at times when it was a bit of a pain to do so. I think this broke down the project into smaller chunks and made it easier to work on, even if at times it caused a blockage in progress.
-- I liked the inferStatusType functionality and think it works well when you interact with it in the free-text option. I think it could be improved by adding more options to the resolver, but I think it's a good start.
+- I liked the `inferStatusType` functionality and think it works well when you interact with it in the free-text option. I think it could be improved by adding more options to the resolver, but I think it's a good start.
 - I almost gave up on the project at one point, but I took an hour break and came back to it, determined to solve the problem. While I'm not proud of the fact that I almost just submitted it and hoped that I'd get a pass, I'm glad that I have an internal drive to see things through to the end.
-- I added an infinite scrolling feature to the table so fewer elements have to be rendered to the screen on initial load. I would like to develop this further for some more edge cases as well as expanding it into fetching more results from the API (Rather than just handling the ones that are already loaded into the store) but that wasn't ever called for in the task. Though thinking about it, maybe the API does have that functionality... I better not get too into this because before you know it, there will be anotehr readme version with that feature implemented...
+- I added an infinite scrolling feature to the table so fewer elements have to be rendered to the screen on initial load. I would like to develop this further for some more edge cases as well as expanding it into fetching more results from the API (Rather than just handling the ones that are already loaded into the store) but that wasn't called for in the task. Though thinking about it, maybe the API does have that functionality... I better not get too into this because before you know it, there will be anotehr readme version with that feature implemented...
 
 ### What I think could be improved
 
 - I wish my tests worked with the vue components, I think that would have been a good way to test the functionality of the app. I tried using different methods for instance using the `computed.call` method, but this still gave me issues. If I had more time I would have tried to figure this one out.
-- I had a lot in mind for improving the performance of the app (such as using a virtual list to render the table, using a web worker to handle the sorting, lazy loading components, etc.) but with the core functionality not being there, I didn't want to go too far down that rabbit hole.
-- I think the note to say *may* use nuxt might have been more of a possitive nudge than a negative one, but I think I would have been better off using nuxt to get the app up and running faster, as well as handling ssr. I initially read the *may* as a suggestion to not use nuxt but I think that was a misinterpretation on my part (and of course I would clarify this by sending a messege).
-- My editor setup didn't pan out so well, which was a shame as it is something I've never really had much of an issue with in the past. For some reason my tsconfig isn't interacting with VSCode as I might have expected. I'm sure it's some simple config issue since it works periodically in the editor (and works fine when running)
+- I had a lot in mind for improving the performance of the app (such as using a virtual list to render the table, using a web worker to handle the sorting, lazy loading components, etc.) but with the core functionality not being there, and having already spent a good amount of time on this, I think I'll let that site for a bit and maybe come back to it in the future.
+- I think the note to say *may* use nuxt might have been more of a possitive nudge than a negative one, but I think I would have been better off using nuxt to get the app up and running faster, as well as handling ssr. I initially read the *may* as a suggestion to not use nuxt but I think that was a misinterpretation on my part (and of course I would usually clarify this by contacting a member of the team to clarify that).
+- My editor setup didn't pan out so well, which was a shame as it is something I've never really had much of an issue with in the past. For some reason my tsconfig isn't interacting with VSCode as I might have expected. I'm sure it's some simple config issue since it works periodically in the editor (and works fine when running the app)
 - The page layout could do with some work. I think the layout doesn't make use of screen space very well and could be improved.
 - Now that I think about it, I don't think that an `aside` is a good element to put the form into...
 - Add a more screen-reader friendly interaction for selecting a departure status
@@ -45,19 +45,17 @@ There were a few things that I wanted to note as a difference from how this proj
 
 ### Planned features which I didn't get to
 
+- Use a more consistent method for scrolling to the form when the user clicks on a row, I have a method now but it doesn't actually work in build. I think this is because the element isn't rendered yet when the method is called. I'll look into this more if I get the chance.
 - A timer on the reset button to prevent excessive calls to the api.
-- Using the destinations to show the flag of the country to make information much easier to parse.
-- Status to flash when it changes to make it easier to see when it changes.
+- Using the destinations to show the flag of the country to make the list of information much easier to parse for the user.
+- Status to flash when it changes to draw attention to changes.
 - Handle the demounting of the form more eligantly (I think it's a bit janky at the moment, it'd be nice to scroll to the updated row when it has been updated)
 - Diverted status change would render the new destination bellow the original destination - I chose this as a solution to the problem as people use the city names as an identifier for the flight (rather than the number). I would have done this if I got the update method working.
-- Use a more consistent method for scrolling to the form when the user clicks on a row, I have a method now but it doesn't actually work in build. I think this is because the element isn't rendered yet when the method is called. I'll look into this more if I get the chance.
 - Pretty up the page layout a bit more, I think at the moment it puts too much emphasis on the table and not enough on the form. I'd like to make it a little more balanced especially on desktop. Maybe on mobile I could use a card flip style to make it a but more frictionless, but again I think this is a bit of a nice to have.
 
 ### Conclusion
 
 I was able to complete the task and I think the product fits the brief. I am aware there are some rough patches (mainly to do with scrolling behaviour and some interaction) but I think that even though I did kind of shoot myself in the foot by overcomplicating things, I delivered a functional app which will show some of the more advanced concepts that I have learned in my time working with Vue.
-
-
 
 ## External Packages used
 
@@ -77,8 +75,8 @@ I've listed out all of the packages that I thought would require a choice to be 
 
 - [vitest](https://vitest.dev/) - I'm a big fan of this new framework and find it intergrates really well with vite, it's basically just jest but (in my experience) a lot faster
 - [vue-test-utils@v1](https://vue-test-utils.vuejs.org/) - Used for testing vue components (this is standard for vue and I wouldn't test without it but I thought it's worth mentioning) v1 used becuase it's the version that supports vue 2
-- [@vitest/coverage-c8] - Used to generate code coverage reports, there's no real reason that I could thing of to use this over [istanbul](https://istanbul.js.org/) was just an arbitrary choice. I'm sure there are pros and cons to each (as well as other options) but I didn't want to spend too much time lulling on this one.
-- [@pinia/testing] - Required to unit test pinia stores if they are used in components
+- [@vitest/coverage-c8](https://github.com/bcoe/c8) - Used to generate code coverage reports, there's no real reason that I could thing of to use this over [istanbul](https://istanbul.js.org/) was just an arbitrary choice. I'm sure there are pros and cons to each (as well as other options) but I didn't want to spend too much time lulling on this one.
+- [@pinia/testing](https://www.npmjs.com/package/@pinia/testing) - Required to unit test pinia stores if they are used in components
 
 ### UI
 
@@ -91,7 +89,7 @@ I've listed out all of the packages that I thought would require a choice to be 
 ### Misc
 
 - [typescript](https://www.typescriptlang.org/) - Makes code MUCH more maintainable and readable
-- [axios] - I floated the idea of using [fetch](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API) but axios is 1) more browser compatible and 2) it works with typescript typing (without workarounds) so I went with that
+- [axios](https://axios-http.com/docs/intro) - I floated the idea of using [fetch](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API) but axios is 1) more browser compatible and 2) it works with typescript typing (without workarounds) so I went with that
 - [VueUse](https://vueuse.org/) - I used this to get the `useInfiniteLoading` function. I could have implemented this myself but for some functionality I think it's worth using the library that has been maintained and tested heavily, rather than re-inventing the wheel (oh.. and look.. it's another Anthony Fu maintained project 🤷)
 
 ## Customize configuration
