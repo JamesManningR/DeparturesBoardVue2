@@ -3,10 +3,10 @@ import { onMounted, computed, ref } from 'vue'
 import { useInfiniteScroll } from '@vueuse/core'
 import { storeToRefs } from 'pinia'
 
-import { useDeparturesStore } from '@store'
+import { useDeparturesStore, useAppStore } from '@store'
 
 import AppButton from '@components/app/AppButton.vue'
-import DeparturesTableHead from '@/components/departures/table/DeparturesTableHead.vue'
+import DeparturesTableHead from '@components/departures/table/DeparturesTableHead.vue'
 import DepartureTableRow from './DepartureTableRow.vue'
 
 const emit = defineEmits<{
@@ -37,9 +37,12 @@ onMounted(() => {
   fetchDepartures()
 })
 
+const appStore = useAppStore()
+const { isEditOpen } = storeToRefs(appStore)
 // Select departure functionality
 const selectDeparture = (id: string) => {
   departuresStore.selectDeparture(id)
+  isEditOpen.value = true
   emit('selectDeparture', id)
 }
 
