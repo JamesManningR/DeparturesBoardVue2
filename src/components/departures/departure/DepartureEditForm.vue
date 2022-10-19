@@ -1,9 +1,10 @@
 <script setup lang="ts">
 import { ref, computed } from 'vue'
+import { storeToRefs } from 'pinia'
 
 import type { Departure } from '@types'
 import { StatusTypes } from '@types'
-import { useDeparturesStore } from '@store'
+import { useAppStore, useDeparturesStore } from '@store'
 import { inferStatusType } from '@utils'
 
 import DepartureStatus from '@components/departures/departure/DepartureStatus.vue'
@@ -41,9 +42,12 @@ const newStatus = computed(() => {
 })
 
 const departureStore = useDeparturesStore()
+const appStore = useAppStore()
+const { isEditOpen } = storeToRefs(useAppStore())
 const handleSubmit = () => {
   const updatedDeparture = { ...props.departure, status: newStatus.value }
-
+  
+  isEditOpen.value = false;
   departureStore.updateDeparture(updatedDeparture)
   departureStore.resetSelectedDeparture()
 }
