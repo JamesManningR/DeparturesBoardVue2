@@ -7,6 +7,7 @@ import WindiCSS from 'vite-plugin-windicss'
 
 // https://vitejs.dev/config/
 export default defineConfig({
+  base: '/DeparturesBoardVue2/',
   plugins: [
     vue2(),
     legacy({
